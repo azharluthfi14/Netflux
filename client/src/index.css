@@ -1,4 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --main-color: #0b0b0b;
+}
+
+@layer base {
+  html {
+    font-family: Roboto, system-ui, sans-serif;
+  }
+  .bg-gradient-header {
+    background: linear-gradient(to top, transparent 0%, rgb(0, 0, 0, 0.3) 50%);
+  }
+}
 
 * {
   padding: 0;
