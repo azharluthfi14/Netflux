@@ -7,14 +7,15 @@ import {
   getRandomMovie,
   getMovies,
 } from "../controllers/movieController.js";
+import verifyToken from "../middleware/verifyToken.js";
 
 const router = express.Router();
 
-router.post("/", addMovie);
-router.get("/", getMovies);
-router.put("/:id", updateMovie);
-router.delete("/:id", deleteMovie);
-router.get("/find/:id", getMovie);
-router.get("/random", getRandomMovie);
+router.post("/", verifyToken, addMovie);
+router.get("/", verifyToken, getMovies);
+router.put("/:id", verifyToken, updateMovie);
+router.delete("/:id", verifyToken, deleteMovie);
+router.get("/find/:id", verifyToken, getMovie);
+router.get("/random", verifyToken, getRandomMovie);
 
 export default router;
