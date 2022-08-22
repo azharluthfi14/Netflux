@@ -5,6 +5,7 @@ import connectDb from "./db/connection.js";
 
 // Route module
 import userRoute from "./routes/userRoute.js";
+import movieRoute from "./routes/movieRoute.js";
 
 const app = express();
 dotenv.config();
@@ -13,6 +14,7 @@ app.use(express.json());
 
 // Route
 app.use("/api/user", userRoute);
+app.use("/api/movie", movieRoute);
 
 // Handling error response status
 app.use((error, req, res, next) => {
