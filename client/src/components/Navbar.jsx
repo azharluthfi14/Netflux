@@ -1,9 +1,22 @@
-import React from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  window.onscroll = () => {
+    setIsScrolled(window.pageYOffset === 0 ? false : true);
+    return () => (window.onscroll = null);
+  };
+
+  console.log(isScrolled);
+
   return (
-    <nav className="w-full text-white sticky top-0  bg-gradient-header z-30">
+    <nav
+      className={`w-full text-white fixed top-0  ${
+        isScrolled ? "bg-black" : "bg-gradient-header"
+      } z-30`}
+    >
       <div className="px-14 flex items-center justify-between h-16">
         {/* Left Menu */}
         <div className="flex items-center">
